@@ -60,10 +60,7 @@ public class AnnotationsIndexBuilder implements AnnotationProcessorFactory {
     private static final Set<String> supportedAnnotations = new HashSet<String>(
             Arrays.asList(
                     "org.nuxeo.ecm.webengine.model.WebObject",
-                    "org.nuxeo.ecm.webengine.model.WebAdapter",
-                    "org.nuxeo.ecm.webengine.model.WebModule",
-                    "org.nuxeo.ecm.webengine.model.WebView",
-                    "javax.ws.rs.Path"));
+                    "org.nuxeo.ecm.webengine.model.WebAdapter"));
 
     private static final String EOL = System.getProperty("line.separator");
 
@@ -175,7 +172,7 @@ public class AnnotationsIndexBuilder implements AnnotationProcessorFactory {
 
                 if (buf.length() > 0) {
                     writer = env.getFiler().createTextFile(Filer.Location.CLASS_TREE, "",
-                            new File("OSGI-INF/annotations"), "UTF-8");
+                            new File("META-INF/web-types"), "UTF-8");
                     writer.print(buf.toString());
                     writer.close();
                 }
